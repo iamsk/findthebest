@@ -1,22 +1,23 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import ReactHtmlParser from "react-html-parser";
 
 const exampleMessages = [
   {
-    heading: 'Find the best *hair dryer*',
-    message: 'Find the best *hair dryer*'
+    heading: 'Find the best &nbsp;<b>hair dryer</b>',
+    message: 'hair dryer'
   },
   {
-    heading: 'Find the best *pool cleaner*',
-    message: 'Find the best *pool cleaner*'
+    heading: 'Find the best &nbsp;<b>pool cleaner</b>',
+    message: 'pool cleaner'
   },
   {
-    heading: 'Find the best *cat litter box*',
-    message: 'Find the best *cat litter box*'
+    heading: 'Find the best &nbsp;<b>cat litter box</b>',
+    message: 'cat litter box'
   },
   {
-    heading: 'Find the best *keyboards*',
-    message: 'Find the best *keyboards*'
+    heading: 'Find the best &nbsp;<b>keyboards</b>',
+    message: 'keyboards'
   }
 ]
 export function EmptyScreen({
@@ -41,7 +42,7 @@ export function EmptyScreen({
               }}
             >
               <ArrowRight size={16} className="mr-2 text-muted-foreground" />
-              {message.heading}
+              {ReactHtmlParser(message.heading)}
             </Button>
           ))}
         </div>

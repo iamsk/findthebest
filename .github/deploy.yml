@@ -1,0 +1,19 @@
+name: Deploy Web Version of findthebest
+on: [ push ]
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: aws
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 43.199.105.61
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            cd /data/www/findthebest
+            git pull
+            bun install
+            bun run build
+            sudo supervisorctl restart findthebest

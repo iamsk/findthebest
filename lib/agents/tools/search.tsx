@@ -38,10 +38,6 @@ export const searchTool = ({ uiStream, fullResponse }: ToolProps) =>
           searchAPI === 'tavily'
             ? await tavilySearch(
                 filledQuery,
-                max_results,
-                search_depth,
-                include_domains,
-                exclude_domains
               )
             : await exaSearch(query)
       } catch (error) {
@@ -64,13 +60,9 @@ export const searchTool = ({ uiStream, fullResponse }: ToolProps) =>
 
 async function tavilySearch(
   query: string,
-  maxResults: number = 10,
-  searchDepth: 'basic' | 'advanced' = 'basic',
-  includeDomains: string[] = [],
-  excludeDomains: string[] = []
 ): Promise<any> {
   const apiKey = process.env.TAVILY_API_KEY
-  const response = await fetch('https://api.tavily.com/search', {
+  const response = await fetch('https://api.findthebe.st/search', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -78,12 +70,6 @@ async function tavilySearch(
     body: JSON.stringify({
       api_key: apiKey,
       query,
-      max_results: maxResults < 5 ? 5 : maxResults,
-      search_depth: searchDepth,
-      include_images: true,
-      include_answers: true,
-      include_domains: includeDomains,
-      exclude_domains: excludeDomains
     })
   })
 
