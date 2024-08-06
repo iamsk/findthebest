@@ -10,7 +10,7 @@ export const Header: React.FC = async () => {
       <div>
         <a href="/">
           <IconLogo className={cn('w-50 h-5')} />
-          <span className="sr-only">FindTheBest</span>
+          <span className="sr-only">FindtheBest</span>
         </a>
       </div>
       <div className="flex gap-0.5">
