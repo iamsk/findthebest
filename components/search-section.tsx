@@ -26,10 +26,10 @@ export function SearchSection({ result, includeDomains }: SearchSectionProps) {
           <Section size="sm" className="pt-2 pb-0">
             <ToolBadge tool="search">{`${searchResults.query}${includeDomainsString}`}</ToolBadge>
           </Section>
-          {searchResults.images && searchResults.images.length > 0 && (
+          {searchResults.products && searchResults.products.length > 0 && (
             <Section title="Products">
               <SearchResultsImageSection
-                images={searchResults.images}
+                images={searchResults.products}
                 query={searchResults.query}
               />
             </Section>

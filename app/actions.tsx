@@ -106,7 +106,7 @@ async function submit(
 
     let action = { object: { next: 'proceed' } }
     // If the user skips the task, we proceed to the search
-    if (!skip) action = (await taskManager(messages)) ?? action
+    // if (!skip) action = (await taskManager(messages)) ?? action
 
     if (action.object.next === 'inquire') {
       // Generate inquiry
@@ -227,30 +227,30 @@ async function submit(
       })
 
       // Generate related queries
-      const relatedQueries = await querySuggestor(uiStream, processedMessages)
+      // const relatedQueries = await querySuggestor(uiStream, processedMessages)
       // Add follow-up panel
-      uiStream.append(
-        <Section title="Follow-up">
-          <FollowupPanel />
-        </Section>
-      )
+      // uiStream.append(
+      //   <Section title="Follow-up">
+      //     <FollowupPanel />
+      //   </Section>
+      // )
 
       aiState.done({
         ...aiState.get(),
         messages: [
           ...aiState.get().messages,
-          {
-            id: groupId,
-            role: 'assistant',
-            content: JSON.stringify(relatedQueries),
-            type: 'related'
-          },
-          {
-            id: groupId,
-            role: 'assistant',
-            content: 'followup',
-            type: 'followup'
-          }
+          // {
+          //   id: groupId,
+          //   role: 'assistant',
+          //   content: JSON.stringify(relatedQueries),
+          //   type: 'related'
+          // },
+          // {
+          //   id: groupId,
+          //   role: 'assistant',
+          //   content: 'followup',
+          //   type: 'followup'
+          // }
         ]
       })
     } else {

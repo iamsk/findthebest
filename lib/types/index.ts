@@ -1,5 +1,5 @@
 export type SearchResults = {
-  images: {
+  products: {
     'title': string,
     'image': string,
     'url': string
