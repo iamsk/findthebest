@@ -123,7 +123,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
             ref={inputRef}
             name="input"
             rows={1}
-            maxRows={5}
+            maxRows={1}
             tabIndex={0}
             placeholder="Find the best..."
             spellCheck={false}

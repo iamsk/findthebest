@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { Card, CardContent } from '@/components/ui/card'
+import {Card, CardContent, CardFooter} from '@/components/ui/card'
 import {
   Dialog,
   DialogContent,
@@ -74,9 +74,10 @@ export const SearchResultsImageSection: React.FC<
             >
               <Card className="flex-1 h-full">
                 <CardContent className="p-2 h-full w-full">
+                  <a href={image.url}>
                   {image ? (
-                      <a href={image.url}>
                         <img
+                          // style={{ paddingBottom: '30px' }}
                           src={image.image}
                           alt={`Image ${index + 1}`}
                           className="h-full w-full object-cover"
@@ -84,10 +85,11 @@ export const SearchResultsImageSection: React.FC<
                             (e.currentTarget.src = '/images/placeholder-image.png')
                           }
                         />
-                      </a>
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}
+                <div className="flex items-center p-1 pt-0" style={{ fontSize: '10px', color: 'gray', fontWeight: 'bold',  textAlign: 'center', marginTop: '-30px' }}>{image.title}</div>
+                </a>
                 </CardContent>
               </Card>
             </div>

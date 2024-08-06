@@ -39,7 +39,7 @@ export const retrieveTool = ({ uiStream, fullResponse }: ToolProps) => tool({
             }
           ],
           query: '',
-          images: []
+          products: []
         }
       }
     } catch (error) {
