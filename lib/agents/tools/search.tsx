@@ -62,7 +62,7 @@ async function tavilySearch(
   query: string,
 ): Promise<any> {
   const apiKey = process.env.TAVILY_API_KEY
-  const response = await fetch('https://api.findthebe.st/search', {
+  const response = await fetch('http://localhost:8000/search', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ async function tavilySearch(
   const data = await response.json()
   const sanitizedData: SearchResults = {
     ...data,
-    images: data.images.map((url: any) => sanitizeUrl(url))
+    // images: data.images.map((url: any) => sanitizeUrl(url))
   }
 
   return sanitizedData

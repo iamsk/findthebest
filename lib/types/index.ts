@@ -1,5 +1,9 @@
 export type SearchResults = {
-  images: string[]
+  images: {
+    'title': string,
+    'image': string,
+    'url': string
+  }[]
   results: SearchResultItem[]
   query: string
 }
