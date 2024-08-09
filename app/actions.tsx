@@ -238,7 +238,7 @@ async function submit(
       aiState.done({
         ...aiState.get(),
         messages: [
-          ...aiState.get().messages,
+          ...aiState.get().messages
           // {
           //   id: groupId,
           //   role: 'assistant',

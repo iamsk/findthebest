@@ -16,10 +16,10 @@ const fontSans = FontSans({
 
 const title = 'FindtheBest'
 const description =
-  'A fully open-source AI-powered answer engine with a generative UI.'
+  'A fully AI-powered product recommendation engine with a generative UI.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://findthebe.st/'),
   title,
   description,
   openGraph: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title,
     description,
     card: 'summary_large_image',
-    creator: '@miiura'
+    creator: '@findthebe_st'
   }
 }
 
