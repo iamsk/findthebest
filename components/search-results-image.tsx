@@ -89,7 +89,7 @@ export const SearchResultsImageSection: React.FC<
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}
-                <div className="flex items-center p-1 pt-0" style={{ fontSize: '10px', color: 'gray', fontWeight: 'bold',  textAlign: 'center', marginTop: '-30px' }}>{image.title}</div>
+                <div className="flex items-center p-1 pt-0" style={{ fontSize: '10px', fontWeight: 'bold',  textAlign: 'center', marginTop: '-30px' }}>{image.title}</div>
                 </a>
                 </CardContent>
               </Card>

@@ -8,7 +8,7 @@ const loadChats = cache(async () => {
 
 export async function ShareList() {
     const chats = await loadChats()
-    return (<div className="max-w-4xl w-full px-6 mx-auto" style={{marginTop: '470px'}}>
+    return (<div className="max-w-4xl w-full px-6 mx-auto" style={{marginTop: '477px'}}>
         <div style={{textAlign: 'center', fontSize: "18px"}}><b>Recent searches</b></div>
         <br />
         <SearchResultsImageSection
