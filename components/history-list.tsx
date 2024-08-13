@@ -9,7 +9,7 @@ type HistoryListProps = {
 }
 
 const loadChats = cache(async (userId?: string) => {
-  return await getChats(userId)
+  return await getChats()
 })
 
 // Start of Selection

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import type { AI, UIState } from '@/app/actions'
 import { useUIState, useActions, useAIState } from 'ai/rsc'
@@ -117,6 +117,8 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
         'fixed bottom-8 left-0 right-0 top-10 mx-auto h-screen flex flex-col items-center justify-center'
       }
     >
+      <div style={{fontSize: "24px"}}><b>Save time. Find the best product.</b></div>
+      <br />
       <form onSubmit={handleSubmit} className="max-w-2xl w-full px-6">
         <div className="relative flex items-center w-full">
           <Textarea

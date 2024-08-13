@@ -28,11 +28,12 @@ interface SearchResultsImageSectionProps {
     'url': string
   }[]
   query?: string
+  img_count?: number
 }
 
 export const SearchResultsImageSection: React.FC<
   SearchResultsImageSectionProps
-> = ({ images, query }) => {
+> = ({ images, query, img_count }) => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -65,7 +66,7 @@ export const SearchResultsImageSection: React.FC<
 
   return (
     <div className="flex flex-wrap gap-2">
-      {images.slice(0, 4).map((image, index) => (
+      {images.slice(0, img_count).map((image, index) => (
         <Dialog key={index}>
           <DialogTrigger asChild>
             <div

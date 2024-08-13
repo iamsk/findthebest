@@ -383,7 +383,7 @@ export const getUIStateFromAIState = (aiState: Chat) => {
                   <UserMessage
                     message={value}
                     chatId={chatId}
-                    showShare={index === 0 && !isSharePage}
+                    showShare={true}
                   />
                 )
               }

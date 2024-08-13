@@ -12,10 +12,8 @@ import {
   DialogDescription,
   DialogTitle
 } from './ui/dialog'
-import { shareChat } from '@/lib/actions/chat'
 import { toast } from 'sonner'
 import { useCopyToClipboard } from '@/lib/hooks/use-copy-to-clipboard'
-import { Spinner } from './ui/spinner'
 
 interface ChatShareProps {
   chatId: string
@@ -27,25 +25,6 @@ export function ChatShare({ chatId, className }: ChatShareProps) {
   const [pending, startTransition] = useTransition()
   const { copyToClipboard } = useCopyToClipboard({ timeout: 1000 })
   const [shareUrl, setShareUrl] = useState('')
-
-  const handleShare = async () => {
-    startTransition(() => {
-      setOpen(true)
-    })
-    const result = await shareChat(chatId)
-    if (!result) {
-      toast.error('Failed to share chat')
-      return
-    }
-
-    if (!result.sharePath) {
-      toast.error('Could not copy link to clipboard')
-      return
-    }
-
-    const url = new URL(result.sharePath, window.location.href)
-    setShareUrl(url.toString())
-  }
 
   const handleCopy = () => {
     if (shareUrl) {
@@ -83,11 +62,6 @@ export function ChatShare({ chatId, className }: ChatShareProps) {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="items-center">
-            {!shareUrl && (
-              <Button onClick={handleShare} disabled={pending} size="sm">
-                {pending ? <Spinner /> : 'Get link'}
-              </Button>
-            )}
             {shareUrl && (
               <Button onClick={handleCopy} disabled={pending} size="sm">
                 {'Copy link'}

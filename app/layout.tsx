@@ -7,6 +7,8 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
+import {ShareList} from "@/components/share-list";
+import React from "react";
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -57,6 +59,7 @@ export default function RootLayout({
           <AppStateProvider>
             <Header />
             {children}
+            <ShareList />
             <Footer />
             <Toaster />
           </AppStateProvider>

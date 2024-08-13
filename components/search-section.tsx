@@ -31,6 +31,7 @@ export function SearchSection({ result, includeDomains }: SearchSectionProps) {
               <SearchResultsImageSection
                 images={searchResults.products}
                 query={searchResults.query}
+                img_count={4}
               />
             </Section>
           )}
