@@ -98,10 +98,10 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
           onClick={() => handleClear()}
           disabled={isGenerating}
         >
-          <span className="text-sm mr-2 group-hover:block hidden animate-in fade-in duration-300">
-            New
+          <span className="text-xl mr-2 group-hover:block hidden animate-in fade-in duration-300">
+            New Search
           </span>
-          <Plus size={18} className="group-hover:rotate-90 transition-all" />
+          <Plus size={36} className="group-hover:rotate-90 transition-all" />
         </Button>
       </div>
     )
