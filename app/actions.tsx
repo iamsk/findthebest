@@ -329,7 +329,7 @@ export const AI = createAI<AIState, UIState>({
     const path = `/search/${chatId}`
     const title =
       messages.length > 1
-        ? JSON.parse(messages[1].content)?.input?.substring(0, 100) ||
+        ? JSON.parse(messages[1].content)?.query?.substring(0, 100) ||
           'Untitled'
         : 'Untitled'
     // Add an 'end' message at the end to determine if the history needs to be reloaded
