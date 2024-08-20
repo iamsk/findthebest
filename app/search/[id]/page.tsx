@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: SearchPageProps) {
     },
     twitter: {
       title,
-      description,
+      description
+    }
   }
 }
 
