@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import {Card, CardContent, CardFooter} from '@/components/ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import {
   Dialog,
   DialogContent,
@@ -23,9 +23,9 @@ import { PlusCircle } from 'lucide-react'
 
 interface SearchResultsImageSectionProps {
   images: {
-    'title': string,
-    'image': string,
-    'url': string
+    title: string
+    image: string
+    url: string
   }[]
   query?: string
   img_count?: number
@@ -76,21 +76,33 @@ export const SearchResultsImageSection: React.FC<
               <Card className="flex-1 h-full">
                 <CardContent className="p-2 h-full w-full">
                   <a href={image.url}>
-                  {image ? (
-                        <img
-                          // style={{ paddingBottom: '30px' }}
-                          src={image.image}
-                          alt={`Image ${index + 1}`}
-                          className="h-full w-full object-cover"
-                          onError={e =>
-                            (e.currentTarget.src = '/images/placeholder-image.png')
-                          }
-                        />
-                  ) : (
-                    <div className="w-full h-full bg-muted animate-pulse" />
-                  )}
-                <div className="flex items-center p-1 pt-0" style={{ fontSize: '10px', fontWeight: 'bold',  textAlign: 'center', marginTop: '-30px' }}>{image.title}</div>
-                </a>
+                    {image ? (
+                      <img
+                        // style={{ paddingBottom: '30px' }}
+                        src={image.image}
+                        alt={image.title}
+                        title={image.title}
+                        className="h-full w-full object-cover"
+                        onError={e =>
+                          (e.currentTarget.src =
+                            '/images/placeholder-image.png')
+                        }
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-muted animate-pulse" />
+                    )}
+                    <div
+                      className="flex items-center p-1 pt-0"
+                      style={{
+                        fontSize: '10px',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                        marginTop: '-30px'
+                      }}
+                    >
+                      {image.title}
+                    </div>
+                  </a>
                 </CardContent>
               </Card>
             </div>
