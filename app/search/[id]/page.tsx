@@ -13,8 +13,18 @@ export interface SearchPageProps {
 
 export async function generateMetadata({ params }: SearchPageProps) {
   const chat = await getChat(params.id)
+  const title = chat?.title.toString().slice(0, 100) || 'Search'
+  const description = chat?.title.toString().slice(0, 100) || 'Search'
   return {
-    title: chat?.title.toString().slice(0, 100) || 'Search'
+    title,
+    description,
+    openGraph: {
+      title,
+      description
+    },
+    twitter: {
+      title,
+      description,
   }
 }
 
