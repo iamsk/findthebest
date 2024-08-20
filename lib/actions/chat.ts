@@ -26,10 +26,19 @@ export async function saveChat(chat: Chat, userId: string = 'anonymous') {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      chat: chat,
+      chat: chat
     })
   })
   if (!response.ok) {
     throw new Error(`Error: ${response.status}`)
+  }
+}
+
+export async function getSitemap() {
+  try {
+    const sitemap = await fetch('https://api.findthebe.st/sitemap')
+    return sitemap.json()
+  } catch (error) {
+    return []
   }
 }
